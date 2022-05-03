@@ -1,0 +1,27 @@
+import cv2
+img1 = cv2.imread("D:\\demo1\\star1.png",cv2.IMREAD_GRAYSCALE)
+img2 = cv2.imread("D:\\demo1\\star2.png",cv2.IMREAD_GRAYSCALE)
+img3 = cv2.imread("D:\\demo1\\triangle1.png",cv2.IMREAD_GRAYSCALE)
+ret1,thresh1 = cv2.threshold(img1,150,255,cv2.THRESH_BINARY_INV)
+ret2,thresh2 = cv2.threshold(img2,250,255,cv2.THRESH_BINARY_INV)
+ret3,thresh3 = cv2.threshold(img3,150,255,cv2.THRESH_BINARY_INV)
+contours1,hiearchy1=cv2.findContours(thresh1,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+contours2,hiearchy2=cv2.findContours(thresh2,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+contours3,hiearchy3=cv2.findContours(thresh3,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+print(hiearchy1,hiearchy2,hiearchy3)
+cnt1 = contours1[0]
+cnt2 = contours2[0]
+cnt3 = contours3[0]
+help(cv2.matchShapes)
+r1 = cv2.matchShapes(cnt1,cnt3,cv2.CONTOURS_MATCH_I1,0.0)
+r2 = cv2.matchShapes(cnt2,cnt3,cv2.CONTOURS_MATCH_I1,0.0)
+print("图三与图一的相似度为",r1)
+print("图三与图二的相似度为",r2)
+cv2.imshow("img1",img1)
+cv2.imshow("img2",img2)
+cv2.imshow("img3",img3)
+cv2.imshow("thresh1",thresh1)
+cv2.imshow("thresh2",thresh2)
+cv2.imshow("thresh3",thresh3)
+cv2.waitKey()
+cv2.destroyAllWindows()
