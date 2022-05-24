@@ -1,3 +1,4 @@
+# 距离变换
 import cv2
 import numpy as np
 img = cv2.imread("D:\\demo1\\flower.jpeg")
