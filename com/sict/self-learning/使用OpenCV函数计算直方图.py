@@ -2,7 +2,7 @@
 import cv2
 import matplotlib.pyplot as plt
 img = cv2.imread("D:\\demo1\\flower.jpeg")
-plt.figure('程序运行结果')
+plt.figure('程序运行结果：')
 rgb=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
 plt.subplot(2,2,1)
 plt.imshow(rgb)

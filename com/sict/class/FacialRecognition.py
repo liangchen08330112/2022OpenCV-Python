@@ -26,7 +26,7 @@ def getFace(img):
 # 生成视频
 # 保存的视频格式为avi，编码格式为MJPG，帧率为15（可以改，帧率越大视频越流畅，反之越卡顿，但也会影响视频占用大小），(1000,563)指视频的宽高。
 videoWriter = cv2.VideoWriter('D:\\demo1\\FacialRecognition.avi',cv2.VideoWriter_fourcc(*'MJPG'),15,(1000,563))
-# 判断视频是否成功打开，如果成功打开则进入循环
+# 判断视频是否成功打开，如果成功打开则进入循环。
 while(cap.isOpened()):
     ret,frame = cap.read()
     if ret == True:
@@ -44,6 +44,7 @@ while(cap.isOpened()):
             # 停止捕获和生成视频，跳出循环，执行下一步
             break
         # 摄像头如果未成功打开，跳出循环，执行下一步。
+    # 注意缩进，不要与第42行代码平级，否则无法实现视频效果。
     else:
         break
 # 释放摄像头，停止生成视频并关闭所有窗口。
