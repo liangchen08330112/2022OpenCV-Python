@@ -22,7 +22,6 @@ def getFace(img):
         # (255,0,0)指画刷的颜色，2指画刷的粗细
         img = cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
     return img
-# 为识别的人像加贴纸
 # 生成视频
 # 保存的视频格式为avi，编码格式为MJPG，帧率为15（可以改，帧率越大视频越流畅，反之越卡顿，但也会影响视频占用大小），(1000,563)指视频的宽高。
 videoWriter = cv2.VideoWriter('D:\\demo1\\FacialRecognition.avi',cv2.VideoWriter_fourcc(*'MJPG'),15,(1000,563))
